@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="ta-te-ti.css">
+    <title>Ta-Te-Ti</title>
+</head>
+<body>
+    <div class="messages">
+        <p class="time-messages"> 
+            Tiempo Restante <span id="timer">1:00</span>
+        </p>
+        <a href ="/" class="title">TA-TE-TI</a>
+        <p>El turno es de X</p>
+    </div>
+    <section class="section">
+        <div class="tabla">
+            <div class="fila">
+                <div class="cuadrado" id="0" onclick="usuario_jugando(event)"></div>
+                <div class="cuadrado" id="1" onclick="usuario_jugando(event)"></div>
+                <div class="cuadrado" id="2" onclick="usuario_jugando(event)"></div>
+            </div>
+            <div class="fila">
+                <div class="cuadrado" id="3" onclick="usuario_jugando(event)"></div>
+                <div class="cuadrado" id="4" onclick="usuario_jugando(event)"></div>
+                <div class="cuadrado" id="5" onclick="usuario_jugando(event)"></div>
+            </div>
+            <div class="fila">
+                <div class="cuadrado" id="6" onclick="usuario_jugando(event)"></div>
+                <div class="cuadrado" id="7" onclick="usuario_jugando(event)"></div>
+                <div class="cuadrado" id="8" onclick="usuario_jugando(event)"></div>
+            </div>
+        </div>
+    </section>
+
+    <div class="mensajes">
+        <span class="mensajes_texto"></span>
+    </div>
+    
+    <div class="jugar_de_nuevo_container">
+        <a href="/ta-te-ti.html">Jugar de nuevo</a>
+    </div>
+    <footer class="footer-section">
+        <p>Desarrollado con mucho ❤️ por: <a href="https://www.linkedin.com/in/rodrijuarez/">Rodrigo Juarez</a></p>
+    </footer>
+    <script src="ta-te-ti.js"></script>
+</body>
+</html>

@@ -1,0 +1,185 @@
+@font-face {
+    font-family: "StrongConcrete";
+    src: url(./fonts/StrongConcrete.otf);
+}
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.section{
+    background-color: #f5f5f5;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin: 20px 0px;
+}
+
+.tabla{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    width: 350px;
+    height: 400px;
+    border-top: 5px solid black ;
+    border-bottom: 5px solid black ;
+    border-left: 5px solid black ;
+}
+
+.tabla.deshabilitar{
+    pointer-events: none;
+}
+
+.fila{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    border-bottom: 5px solid black;
+}
+
+.fila:last-child{
+    border: none;
+}
+
+.cuadrado{
+    width: 115px;
+    border-right: 5px solid black;
+    text-align: center;
+    overflow: hidden;
+}
+
+.cartel{
+    position:absolute;
+    top:calc(30% - 50px);
+    left:0;
+    width:100%;
+    height:50%;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.turno{
+    background-color: black;
+    color: white;
+}
+
+.mensajes{
+    display: none;
+}
+
+.mensajes_texto{
+    text-transform: uppercase;
+    padding: 10px;
+}
+
+.mensajes.activo{
+    display: block;
+    position:absolute;
+    top:calc(30% - 50px);
+    left:0;
+    width:100%;
+    padding: 100px 0px;
+    background-color: black;
+    font-family: "StrongConcrete";
+    font-size: 50px;
+    color: white;
+    text-align: center;
+}
+
+.messages{
+    height: 80px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: black;
+    color: white;
+    font-family: "StrongConcrete";
+    padding: 0 15px;
+    font-size: 30px;
+}
+
+.title{
+    text-decoration: none; 
+    color: white;
+}
+
+.time-messages{
+    margin: 0px 15px;
+}
+
+.shift-messages{
+    font-size: 30px;
+    text-align: center;
+    width: 30%;
+    height: 100%;
+    padding: 30px 0px;
+}
+
+.jugar_de_nuevo_container{
+    visibility: hidden;
+}
+
+.jugar_de_nuevo_container.active{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    color: white;
+    font-family: "StrongConcrete";
+    text-align: center;
+    visibility: visible;
+}
+
+.jugar_de_nuevo_container a{
+    color: white;
+    text-decoration: none;
+    padding: 20px 10px;
+    font-size: 20px;
+    background-color: black;
+}
+.footer-section{
+    font-size: 14px;
+    margin-top: 30px;
+}
+
+.footer-section p a{
+    color: white;
+    text-decoration: none;
+}
+
+@media screen and (max-width: 768px){
+    .messages{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        font-size: 20px;
+    }
+    .title{
+        display: none;
+    }
+    .time-messages{
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        width: 100%;
+    }
+    .mensajes.activo{
+        padding: 50px 10px;
+        top: calc(40% - 50px);
+        font-size: 30px;
+    }
+    .mensajes_texto{
+        font-size: 20px;
+    }
+    .section{
+        margin: 45px 0px;
+    }
+}
