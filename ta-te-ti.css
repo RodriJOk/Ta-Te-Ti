@@ -122,7 +122,8 @@
 }
 
 .jugar_de_nuevo_container{
-    visibility: hidden;
+    /* visibility: hidden; */
+    background-color: #f5f5f5;
 }
 
 .jugar_de_nuevo_container.active{
