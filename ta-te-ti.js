@@ -21,6 +21,7 @@ function mostrar_mensaje(mensajes){
 }
 
 function usuario_jugando(event){
+    temporizador();
     let tablero = document.getElementsByClassName('tabla')[0];
     tablero.classList.add('deshabilitar');
     let id_casillero = event.target.id;
@@ -28,8 +29,12 @@ function usuario_jugando(event){
         dibujar_casillero_seleccionado(id_casillero, "X");
         estado_juego[id_casillero] = "X";
         if(validar_ganador() === ""){
+
             maquina_jugando();
         }
+    }else{
+        mostrar_mensaje("Casillero ocupado");
+        tablero.classList.remove('deshabilitar');
     }
 }
 
@@ -42,11 +47,11 @@ function maquina_jugando(){
     clearInterval(id_interal);
     mostrar_mensaje("Espera un momento, la maquina esta jugando");
     setTimeout(() => {
-        let numero_aleatorio = Math.floor(Math.random() * 9);
-        if (estado_juego[numero_aleatorio] === ""){
+        let numero_aleatorio = buscar_casillero_vacio();
+        if (numero_aleatorio !== null){
             dibujar_casillero_seleccionado(numero_aleatorio, "O");
             estado_juego[numero_aleatorio] = "O";
-            if(validar_ganador() === ""){
+            if(validar_ganador() === "" || estado_juego.length === 0){
                 mostrar_mensaje("Te toca a vos !")
                 let tablero = document.getElementsByClassName('tabla')[0];
                 tablero.classList.remove('deshabilitar');
@@ -54,9 +59,6 @@ function maquina_jugando(){
             }else{
                 mostrar_mensaje("Gano la maquina");
             }
-        }
-        else{
-            maquina_jugando();
         }
     }, 1000);
 }
@@ -66,11 +68,8 @@ function dibujar_casillero_seleccionado(casillero, jugador){
     let etiqueta = document.createElement('span');
     etiqueta.classList.add('material-symbols-outlined');
     etiqueta.style.fontSize = "100px";
-    if (jugador === "X"){
-        etiqueta.innerText = "close";
-    }else{
-        etiqueta.innerText = "radio_button_unchecked";
-    }
+    if (jugador === "X") etiqueta.innerText = "close";
+    else etiqueta.innerText = "radio_button_unchecked";
     elemento.appendChild(etiqueta);
 
 }
@@ -123,22 +122,21 @@ function temporizador(){
         let fecha_actual = new Date();
         let tiempo_restante = fecha_futura - fecha_actual;
         let minutos = Math.floor(tiempo_restante / 1000 / 60);
+        if(minutos < 10) minutos = "0" + minutos;
         let segundos = Math.floor(tiempo_restante / 1000 % 60);
+        if (segundos < 10) segundos = "0" + segundos;
         element_timer.innerText = `${minutos}:${segundos}`;
         
-        if(minutos === 0 && segundos === 0){
+        if(minutos === "00" && segundos === "00"){
             clearInterval(id_interal);
             mostrar_mensaje('Se termino el tiempo');
-            let numero_aleatorio = Math.floor(Math.random() * 9);
-            if (estado_juego[numero_aleatorio] === ""){
-                dibujar_casillero_seleccionado(numero_aleatorio, "O");
-                estado_juego[numero_aleatorio] = "O";
-                if(validar_ganador() === ""){
-                    mostrar_mensaje("Gano la maquina");
-                }
-            }
-            else{
-                maquina_jugando();
+            let numero_al_azar = buscar_casillero_vacio();
+            dibujar_casillero_seleccionado(numero_al_azar, "X");
+            estado_juego[numero_al_azar] = "X";
+            if(validar_ganador() === ""){
+                setTimeout(() => {
+                    maquina_jugando();
+                }, 1000);
             }
         }
     }, 1000);
@@ -150,6 +148,17 @@ function reiniciar_juego(){
     tabla.classList.add('deshabilitar');
     let boton_reiniciar = document.getElementsByClassName('jugar_de_nuevo_container')[0];
     boton_reiniciar.classList.add('active');
+}
+
+function buscar_casillero_vacio(){
+    let casilleros_vacios = [];
+    for (let i = 0; i < estado_juego.length; i++) {
+        if(estado_juego[i] === ""){
+            casilleros_vacios.push(i);
+        }
+    }
+    let numero_aleatorio = Math.floor(Math.random() * casilleros_vacios.length);
+    return casilleros_vacios[numero_aleatorio];
 }
 
 mostrar_mensaje("Comienza el juego. Te toca a vos !");
