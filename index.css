@@ -9,13 +9,38 @@
     box-sizing: border-box;
 }
 
-.header-messages, .footer-section{
-    background-color: black;
-    color: white;
+body{
+    background-color: #fff;
     font-family: "StrongConcrete";
-    padding: 30px 15px;
+}
+
+body.dark{
+    background-color: #000;
+}
+
+body.dark .buttom-play button{
+    background-color: white;
+    color: #000;
+}
+
+body.dark .header-messages, body.dark .footer-section{
+    background-color: #000;
+    color: #fff;
+}
+
+.header-messages, .footer-section{
+    background-color: white;
+    color: black;
+    font-family: "StrongConcrete";
+    padding: 30px;
     text-align: center;
     font-size: 36px;
+}
+
+.header-messages{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
 .container-images{
@@ -23,35 +48,204 @@
     display: block;
 }
 
-.buttom-play.active{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+.buttom-play{
     width: 100%;
     height: 100%;
     color: white;
     font-family: "StrongConcrete";
     text-align: center;
+    margin: 15px 0;
 }
 
-.buttom-play a{
+.buttom-play button{
     color: white;
     text-decoration: none;
     padding: 20px 10px;
-    font-size: 20px;
+    font-size: 18px;
     background-color: black;
+    font-family: "StrongConcrete";
 }
 
 .footer-section{
     font-size: 14px;
-    margin-top: 30px;
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
-.footer-section p a{
-    color: white;
+body.dark .footer-section a{
+    padding: 20px 10px;
+    color: #fff;
+}
+
+.footer-section a{
+    padding: 20px 10px;
+    color: rgb(0, 0, 0);
     text-decoration: none;
 }
+
+#modal{
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.9);
+    font-family: "StrongConcrete";
+}
+
+#modal.active{
+    display: block;
+}
+.modal-content{
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 60%;
+    position: relative;
+}
+
+.modal-content .close-icon{
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    border: 3px solid black;
+    background-color: white;
+    color: black;
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+.modal-content .close-icon span{
+    font-size: 10px;
+    margin: 0 auto;
+}
+
+.modal-content .close-icon span:hover{
+    cursor: pointer;
+}
+
+.modal-content h2{
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.modal-content input{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border-radius: 4px;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    font-family: "StrongConcrete";
+    outline: none;
+    caret-color: transparent;
+}
+
+.message-error{
+    display: none;
+}
+
+.message-error.active{
+    display: block;
+    text-align: center;
+    font-size: 16px;
+    color: red;
+    margin-bottom: 20px;
+}
+
+.modal-content input::placeholder{
+    font-family: "StrongConcrete";
+    font-size: 20px;
+}
+
+.modal-content input:focus{
+    text-decoration: none;
+    border: none;
+    border-bottom: 2px solid #ccc;
+}
+.modal-content input:active{
+    text-decoration: none;
+    border: none;
+    border-bottom: 2px solid #ccc;
+}
+
+.modal-content button{
+    width: 100%;
+    background-color: black;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 20px;
+    font-family: "StrongConcrete";
+}
+
+.switch {
+    background: #343D5B;
+    border-radius: 1000px;
+    border: none;
+    position: relative;
+    cursor: pointer;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    outline: none;
+    align-items: center;
+  }
+  
+  .switch::after {
+    content: "";
+    display: block;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    background: #F1F1F1;
+    top: 2px;
+    left: 0;
+    right: unset;
+    border-radius: 100px;
+    -webkit-transition: .3s ease all;
+    transition: .3s ease all;
+    -webkit-box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.2);
+            box-shadow: 0px 0px 2px 2px rgba(0, 0, 0, 0.2);
+  }
+  
+  .switch.active {
+    background: orange;
+    color: #000;
+  }
+  
+  .switch.active::after {
+    right: 0;
+    left: unset;
+  }
+  
+  .switch span {
+    width: 30px;
+    height: 30px;
+    line-height: 30px;
+    display: flex;
+    background: none;
+    color: #fff;
+    flex-direction: inherit;
+    margin: 0 auto;
+    padding-left: 8px;
+  }
 
 @media screen and (max-width: 768px){
     .header-messages{

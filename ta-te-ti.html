@@ -11,11 +11,15 @@
 </head>
 <body>
     <div class="messages">
-        <p class="time-messages"> 
-            Tiempo Restante <span id="timer">1:00</span>
+        <p class="time-messages">
+            <span id="text">Tiempo Restante</span>
+            <span id="timer">1:00</span>
         </p>
         <a href ="ta-te-ti.html" class="title">TA-TE-TI</a>
-        <p>El turno es de X</p>
+        <p class="player-messages">
+            <span class="player-text">Player</span>
+            <span class="user-name"></span>
+        </p>
     </div>
     <section class="section">
         <div class="tabla">
@@ -40,13 +44,25 @@
     <div class="mensajes">
         <span class="mensajes_texto"></span>
     </div>
-    <div class="jugar_de_nuevo_container">
-        <a href="/Ta-Te-Ti/ta-te-ti.html" >Jugar de nuevo</a>
-    </div>
     <footer class="footer-section">
-        <p>Si el juego te ha gustado, y deseas donar un cafecito, puede hacerlo <a href="https://cafecito.app/rodrijuarez">aca</a></p>
+        <a href="https://cafecito.app/rodrijuarez">Apoyar el proyecto</a>
         <p>Desarrollado con mucho ❤️ por: <a href="https://www.linkedin.com/in/rodrijuarez/">Rodrigo Juarez</a></p>
     </footer>
+    <modal id="modal">
+        <section class="modal-content">
+            <span id="simbolo"></span>
+            <h2 id="result">Ranking</h2>
+            <p id="ranking"></p>
+            <div class="play_again">
+                <a href="/ta-te-ti.html" class="play_again_buttom">Jugar de nuevo</a>
+                <a href="/">
+                    <svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512" heigth="20" width="50" fill="#fff">
+                        <path fill="#fff" d="M575.8 255.5c0 18-15 32.1-32 32.1h-32l.7 160.2c0 2.7-.2 5.4-.5 8.1V472c0 22.1-17.9 40-40 40H456c-1.1 0-2.2 0-3.3-.1c-1.4 .1-2.8 .1-4.2 .1H416 392c-22.1 0-40-17.9-40-40V448 384c0-17.7-14.3-32-32-32H256c-17.7 0-32 14.3-32 32v64 24c0 22.1-17.9 40-40 40H160 128.1c-1.5 0-3-.1-4.5-.2c-1.2 .1-2.4 .2-3.6 .2H104c-22.1 0-40-17.9-40-40V360c0-.9 0-1.9 .1-2.8V287.6H32c-18 0-32-14-32-32.1c0-9 3-17 10-24L266.4 8c7-7 15-8 22-8s15 2 21 7L564.8 231.5c8 7 12 15 11 24z"/>
+                    </svg>
+                </a>
+            </div>
+        </section>
+    </modal>
     <script src="ta-te-ti.js"></script>
 </body>
 </html>

@@ -29,6 +29,10 @@
     border-left: 5px solid black ;
 }
 
+body.dark .tabla{
+    background-color: #ffffff;
+}
+
 .tabla.deshabilitar{
     pointer-events: none;
 }
@@ -90,6 +94,10 @@
     text-align: center;
 }
 
+body.dark .mensajes.activo{
+    background-color: #181818
+}
+
 .messages{
     height: 80px;
     display: flex;
@@ -110,6 +118,30 @@
 
 .time-messages{
     margin: 0px 15px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.time-messages #text{
+    font-size: 14px;
+}
+
+.player-messages{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.player-text{
+    font-size: 14px;
+}
+
+.user-name{
+    /* font-size: 20px; */
+    text-transform: uppercase;
 }
 
 .shift-messages{
@@ -137,7 +169,7 @@
     visibility: visible;
 }
 
-.jugar_de_nuevo_container a{
+.jugar_de_nuevo_container a, .play_again_buttom{
     color: white;
     text-decoration: none;
     padding: 20px 10px;
@@ -146,12 +178,131 @@
 }
 .footer-section{
     font-size: 14px;
-    margin-top: 30px;
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
-.footer-section p a{
-    color: white;
+body.dark .footer-section a{
+    padding: 20px 10px;
+    color: #fff;
+}
+
+.footer-section a{
+    padding: 20px 10px;
+    color: rgb(0, 0, 0);
     text-decoration: none;
+}
+
+#modal{
+    display: none;
+    position: fixed;
+    z-index: 1;
+    padding-top: 100px;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.9);
+    font-family: "StrongConcrete";
+}
+
+#modal.active{
+    display: block;
+}
+
+.modal-content{
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%;
+}
+.modal-content #simbolo{
+    text-align: center;
+    display: block;
+    font-size: 100px;
+    font-weight: 900;
+}
+.modal-content h2{
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 20px;
+}
+
+.modal-content input{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border-radius: 4px;
+    box-sizing: border-box;
+    border: none;
+    border-bottom: 2px solid #ccc;
+    font-family: "StrongConcrete";
+    outline: none;
+    cursor: none;
+    caret-color: transparent;
+}
+
+.message-error{
+    display: none;
+}
+
+.message-error.active{
+    display: block;
+    text-align: center;
+    font-size: 16px;
+    color: red;
+    margin-bottom: 20px;
+}
+
+.modal-content input::placeholder{
+    font-family: "StrongConcrete";
+    font-size: 20px;
+}
+
+.modal-content input:focus{
+    text-decoration: none;
+    border: none;
+    border-bottom: 2px solid #ccc;
+}
+.modal-content input:active{
+    text-decoration: none;
+    border: none;
+    border-bottom: 2px solid #ccc;
+}
+
+.play_again{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+}
+
+.icon{
+    background-color: black;
+    padding: 15px 10px;
+}
+
+.modal-content button{
+    width: 100%;
+    background-color: black;
+    color: white;
+    padding: 14px 20px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 20px;
+    font-family: "StrongConcrete";
+}
+
+#ranking{
+    margin: 30px;
+    text-align: center;
 }
 
 @media screen and (max-width: 768px){
