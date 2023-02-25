@@ -337,4 +337,24 @@ body.dark .footer-section a{
     .section{
         margin: 45px 0px;
     }
+    .modal-content{
+        width: 80%;
+        padding: 50px 20px;
+    }
+    .modal-content h2{
+        font-size: 20px;
+    }
+    .modal-content #ranking{
+        margin: 15px 0;
+    }
+    .play_again{
+        gap: 10px;
+    }
+    .jugar_de_nuevo_container a, .play_again_buttom{
+        color: white;
+        text-decoration: none;
+        padding: 22px 5px;
+        font-size: 15px;
+        background-color: black;
+    }
 }
