@@ -308,9 +308,11 @@ body.dark .footer-section a{
 @media screen and (max-width: 768px){
     .messages{
         display: flex;
-        flex-direction: column;
-        justify-content: center;
         font-size: 20px;
+        padding: 0;
+    }
+    .time-messages{
+        width: 50%;
     }
     .title{
         display: none;
@@ -319,7 +321,10 @@ body.dark .footer-section a{
         display: flex;
         flex-direction: column;
         text-align: center;
-        width: 100%;
+        width: 50%;
+    }
+    .player-messages{
+        margin: 0 20px;
     }
     .mensajes.activo{
         padding: 50px 10px;
